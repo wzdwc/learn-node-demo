@@ -1,7 +1,7 @@
 let config = {
     database: 'node',
     username: 'root',
-    password: '7Dal(#%8a%Ys',
+    password: 'Dy#<%r#qg3AH',
     host    : 'localhost',
     port    : 3306
 }
