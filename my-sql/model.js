@@ -13,7 +13,7 @@ for (let f of jsFiles) {
     console.log('fileName', f.filename)
     module.exports[name] = require(`${__dirname}/models/${f}`)
 }
-module.exports.sync = () =>{
+module.exports.sync = () => {
     'use strict'
     db.sync()
 }
