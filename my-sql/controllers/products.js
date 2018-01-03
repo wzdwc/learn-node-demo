@@ -3,10 +3,18 @@ let Product = model.Product
 
 module.exports = {
     async getProducts() {
+        let products = await Product.findAll({
+            where: {
+                name: 'test'
+            }
+        })
+        console.log(products)
         return await Product.findAll()
     },
     async getProduct(id) {
-        return await Product.findById(id)
+        let product = await Product.findById(id)
+        console.log('product:', product)
+        return product
     },
     async createProduct(form) {
         'use strict'

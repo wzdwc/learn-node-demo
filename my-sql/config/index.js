@@ -3,8 +3,9 @@ const testConfig = './config-test.js'
 const proConfig = './config-pro.js'
 const fs = require('fs')
 
-var config = null
-
+let config = null
+let env = process.argv[2]
+process.env.NODE_ENV = env
 if (process.env.NODE_ENV === 'dev') {
     console.log(`Load ${devConfig}...`)
     config = require(devConfig)

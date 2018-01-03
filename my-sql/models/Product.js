@@ -1,11 +1,7 @@
 const db = require('../utils/db')
 
 module.exports = db.defineModel('product', {
-    email: {
-        type  : db.STRING(100),
-        unique: true,
-    },
-    passwd: db.STRING(100),
-    name  : db.STRING(100),
-    gender: db.BOOLEAN,
+    name : db.STRING(100),
+    price: db.BOOLEAN,
+    desc : db.STRING(100),
 })

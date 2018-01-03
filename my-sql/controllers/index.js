@@ -37,7 +37,7 @@ function addControllers(router, dir) {
 }
 
 module.exports = (dir) => {
-    let controllersDir = dir || 'controllers'
+    let controllersDir = dir || ''
     let router = require('koa-router')()
     addControllers(router, controllersDir)
     return router.routes()

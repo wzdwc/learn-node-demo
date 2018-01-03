@@ -2,7 +2,7 @@
  * Created by jorky on 2017/12/7.
  */
 const Koa = require('koa')
-const controller = require('./controllers/index')
+const controller = require('./controllers')
 const bodyParser = require('koa-bodyparser')
 const rest = require('./utils/rest')
 const app = new Koa()
