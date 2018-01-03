@@ -1,15 +1,21 @@
-const model = require('../model')
+const model = require('../models/index')
 let Product = model.Product
 
 module.exports = {
-    getProducts: async () => {
+    async getProducts() {
         return await Product.findAll()
     },
-    getProduct: (id) => {
-
+    async getProduct(id) {
+        return await Product.findById(id)
     },
-    createProduct: (name, manufacturer, price) => {
+    async createProduct(form) {
+        'use strict'
+        let {name, price} = form
+        return await Product.create({
+            prdName: name,
+            price  : price
+        })
     },
-    deleteProduct: (id) => {
+    async deleteProduct(id) {
     },
 }

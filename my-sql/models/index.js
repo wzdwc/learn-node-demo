@@ -1,5 +1,5 @@
 const fs = require('fs')
-const db = require('./db')
+const db = require('../utils/db')
 let files = fs.readdirSync(__dirname + 'models')
 
 let jsFiles = files.filter(f => {

@@ -1,7 +1,7 @@
 
-const products = require('../models/Product')
+const products = require('./products')
 
-const APIError = require('../rest').APIError
+const APIError = require('../utils/rest').APIError
 
 module.exports = {
     'GET /api/products': async (ctx, next) => {
@@ -10,13 +10,14 @@ module.exports = {
         })
     },
     'POST /api/products': async (ctx, next) => {
-        var p = products.createProduct(ctx.request.body.name,
-            ctx.request.body.manufacturer, parseFloat(ctx.request.body.price))
+        let form = ctx.request.body
+        let p = products.createProduct(form)
         ctx.rest(p)
     },
     'DELETE /api/products/:id': async (ctx, next) => {
-        console.log(`delete product ${ctx.params.id}...`)
-        var p = products.deleteProduct(ctx.params.id)
+        let {id} = ctx.params
+        console.log(`delete product ${id}...`)
+        let p = products.deleteProduct(id)
         if (p) {
             ctx.rest(p)
         } else {
