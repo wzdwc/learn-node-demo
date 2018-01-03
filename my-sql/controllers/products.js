@@ -8,12 +8,10 @@ module.exports = {
                 name: 'test'
             }
         })
-        console.log(products)
-        return await Product.findAll()
+        return products
     },
     async getProduct(id) {
         let product = await Product.findById(id)
-        console.log('product:', product)
         return product
     },
     async createProduct(form) {

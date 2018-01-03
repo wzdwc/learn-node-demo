@@ -5,8 +5,10 @@ const APIError = require('../utils/rest').APIError
 
 module.exports = {
     'GET /api/products': async (ctx, next) => {
+        let prd = await products.getProducts()
+        console.log('products:', prd)
         ctx.rest({
-            products: products.getProducts(),
+            products: prd,
         })
     },
     'GET /api/products/:id': async (ctx, next) => {
