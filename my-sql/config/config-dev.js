@@ -1,5 +1,5 @@
 let config = {
-    database: 'node',
+    database: 'test',
     username: 'root',
     password: 'node',
     host    : 'localhost',

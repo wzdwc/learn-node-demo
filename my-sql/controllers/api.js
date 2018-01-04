@@ -5,22 +5,22 @@ const APIError = require('../utils/rest').APIError
 
 module.exports = {
     'GET /api/products': async (ctx, next) => {
-        let prd = await products.getProducts()
-        console.log('products:', prd)
+        let list = await products.getProducts()
         ctx.rest({
-            products: prd,
+            products: list,
         })
     },
     'GET /api/products/:id': async (ctx, next) => {
         let {id} = ctx.params
         console.log(`get product ${id}...`)
+        let prd = await products.getProduct(id)
         ctx.rest({
-            products: products.getProduct(id),
+            products: prd,
         })
     },
     'POST /api/products': async (ctx, next) => {
         let form = ctx.request.body
-        let p = products.createProduct(form)
+        let p = await products.createProduct(form)
         ctx.rest(p)
     },
     'DELETE /api/products/:id': async (ctx, next) => {

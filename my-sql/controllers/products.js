@@ -3,11 +3,7 @@ let Product = model.Product
 
 module.exports = {
     async getProducts() {
-        let products = await Product.findAll({
-            where: {
-                name: 'test'
-            }
-        })
+        let products = await Product.findAll()
         return products
     },
     async getProduct(id) {
